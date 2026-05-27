@@ -5,5 +5,38 @@ Project Title: Operating System Assignment
 Module Code: 351 CS 2104
 Registration Number: 
 
+# EduOS Simulator
+
+EduOS is an educational operating system simulator developed using C and Python.
+
+## Features
+
+- Process Control Block (PCB) simulation
+- Process creation and termination
+- Threading and mutex synchronization
+- Deadlock demonstration
+- CPU scheduling algorithms:
+  - FCFS
+  - SJF
+  - Priority Scheduling
+  - Round Robin
+- JSON serialization
+- Python visualization
+
+## Technologies Used
+
+- C
+- Python
+- pthreads
+- matplotlib
+- JSON
+
+## How to Run
+
+### C Simulator
+
+```bash
+make
+./eduos
 
 
