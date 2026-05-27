@@ -1,18 +1,38 @@
 #include "include/eduos.h"
 
-void add_process(int pid, char name[], int state);
 
-void show_processes();
+int edu_fork(char name[]);
+
+void edu_exec(int pid, char new_name[]);
+
+void edu_exit(int pid);
+
+void edu_ps();
+
 
 int main() {
 
-    add_process(1, "Chrome", READY);
+    int pid1;
 
-    add_process(2, "VSCode", RUNNING);
+    int pid2;
 
-    add_process(3, "Spotify", WAITING);
 
-    show_processes();
+    pid1 = edu_fork("Chrome");
+
+    pid2 = edu_fork("Spotify");
+
+
+    edu_exec(pid1, "Firefox");
+
+
+    edu_ps();
+
+
+    edu_exit(pid2);
+
+
+    edu_ps();
+
 
     return 0;
 }

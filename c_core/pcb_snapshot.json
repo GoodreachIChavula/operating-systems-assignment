@@ -1,0 +1,4 @@
+[
+  {"pid": 1, "name": "Firefox", "state": 2},
+  {"pid": 2, "name": "Spotify", "state": 4}
+]
