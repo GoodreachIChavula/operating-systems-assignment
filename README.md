@@ -45,3 +45,9 @@ make
 ./eduos
 
 
+The full project report can be found here:
+
+docs/report.pdf
+
+
+
