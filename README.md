@@ -30,6 +30,11 @@ EduOS is an educational operating system simulator developed using C and Python.
 - pthreads
 - matplotlib
 - JSON
+- 
+## Valgrind Analysis
+
+Valgrind support was limited due to the Windows development environment. However manual testing confirmed that dynamically allocated memory was properly released and no runtime crashes related to memory misuse were observed during execution.
+
 
 ## How to Run
 
