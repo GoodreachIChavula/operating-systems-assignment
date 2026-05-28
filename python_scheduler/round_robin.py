@@ -1,4 +1,5 @@
 from collections import deque
+import matplotlib.pyplot as plt
 
 
 processes = [
@@ -17,7 +18,10 @@ quantum = 2
 queue = deque(processes)
 
 
-print("\nROUND ROBIN SCHEDULING\n")
+current_time = 0
+
+
+fig, ax = plt.subplots()
 
 
 while queue:
@@ -29,14 +33,38 @@ while queue:
     burst = process["burst_time"]
 
 
-    if burst > quantum:
+    execution_time = min(quantum, burst)
 
-        print(f"P{pid} executed for {quantum} units")
 
-        process["burst_time"] -= quantum
+    ax.barh(
+        y="CPU",
+        width=execution_time,
+        left=current_time
+    )
+
+    ax.text(
+        current_time + execution_time / 2,
+        0,
+        f"P{pid}",
+        ha='center',
+        va='center'
+    )
+
+
+    current_time += execution_time
+
+
+    process["burst_time"] -= execution_time
+
+
+    if process["burst_time"] > 0:
 
         queue.append(process)
 
-    else:
 
-        print(f"P{pid} executed for {burst} units and finished")
+ax.set_xlabel("Time")
+
+ax.set_title("Round Robin Gantt Chart")
+
+
+plt.show()

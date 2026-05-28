@@ -1,3 +1,6 @@
+import matplotlib.pyplot as plt
+
+
 processes = [
 
     {"pid": 1, "priority": 3, "burst_time": 5},
@@ -16,19 +19,31 @@ processes.sort(key=lambda p: p["priority"])
 current_time = 0
 
 
-print("\nPRIORITY SCHEDULING\n")
+fig, ax = plt.subplots()
 
 
 for process in processes:
 
-    waiting_time = current_time
+    ax.barh(
+        y="CPU",
+        width=process["burst_time"],
+        left=current_time
+    )
 
-    turnaround_time = waiting_time + process["burst_time"]
-
-    print(
-        f"PID {process['pid']} "
-        f"| Priority: {process['priority']} "
-        f"| Waiting: {waiting_time}"
+    ax.text(
+        current_time + process["burst_time"] / 2,
+        0,
+        f"P{process['pid']}",
+        ha='center',
+        va='center'
     )
 
     current_time += process["burst_time"]
+
+
+ax.set_xlabel("Time")
+
+ax.set_title("Priority Scheduling Gantt Chart")
+
+
+plt.show()

@@ -1,3 +1,6 @@
+import matplotlib.pyplot as plt
+
+
 processes = [
 
     {"pid": 1, "burst_time": 6},
@@ -16,20 +19,31 @@ processes.sort(key=lambda p: p["burst_time"])
 current_time = 0
 
 
-print("\nSJF SCHEDULING\n")
+fig, ax = plt.subplots()
 
 
 for process in processes:
 
-    waiting_time = current_time
+    ax.barh(
+        y="CPU",
+        width=process["burst_time"],
+        left=current_time
+    )
 
-    turnaround_time = waiting_time + process["burst_time"]
-
-    print(
-        f"PID {process['pid']} "
-        f"| Burst: {process['burst_time']} "
-        f"| Waiting: {waiting_time} "
-        f"| Turnaround: {turnaround_time}"
+    ax.text(
+        current_time + process["burst_time"] / 2,
+        0,
+        f"P{process['pid']}",
+        ha='center',
+        va='center'
     )
 
     current_time += process["burst_time"]
+
+
+ax.set_xlabel("Time")
+
+ax.set_title("SJF Scheduling Gantt Chart")
+
+
+plt.show()
