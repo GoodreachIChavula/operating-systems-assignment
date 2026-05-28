@@ -66,5 +66,6 @@ ax.set_xlabel("Time")
 
 ax.set_title("Round Robin Gantt Chart")
 
+plt.savefig("../docs/screenshots/round_robin_gantt.png")
 
 plt.show()

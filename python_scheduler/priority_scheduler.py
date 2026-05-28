@@ -45,5 +45,6 @@ ax.set_xlabel("Time")
 
 ax.set_title("Priority Scheduling Gantt Chart")
 
+plt.savefig("../docs/screenshots/priority_scheduling_gantt.png")
 
 plt.show()

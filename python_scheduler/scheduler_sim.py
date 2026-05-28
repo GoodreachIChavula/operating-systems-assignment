@@ -41,4 +41,6 @@ ax.set_xlabel("Time")
 ax.set_title("FCFS Gantt Chart")
 
 
+plt.savefig("../docs/screenshots/fcfs_gantt.png")
+
 plt.show()

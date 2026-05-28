@@ -45,5 +45,5 @@ ax.set_xlabel("Time")
 
 ax.set_title("SJF Scheduling Gantt Chart")
 
-
+plt.savefig("../docs/screenshots/sjf_gantt.png")
 plt.show()
